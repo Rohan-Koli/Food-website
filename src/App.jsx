@@ -8,7 +8,7 @@ import ProtectedRoutes from './Cpmponents/ProtectedRoutes';
 function App() {
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter basename='/Food-website/'>
     {/* <div>Appeed</div> 
      <NavLink to= "/" >Home</NavLink>
     <NavLink to= "/success" >Success</NavLink> */}
