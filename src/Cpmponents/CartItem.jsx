@@ -40,9 +40,7 @@ const CartItem = ({img, id, name, price, qty}) => {
             <div className='flex flex-wrap w-2/3  '>
                 <div className=' w-full h-1/2 flex justify-between items-center my-1 font-semibold'><h3>{name}</h3> <MdDelete onClick={()=>{
                     dispatch(removeFromCart({id}));
-                    toast(`${name} removed from cart`, {
-                        icon: '👏',
-                      });
+                    toast(`${name} removed from cart`);
             }} className='font-bold  text-2xl mx-1'   /></div>
                 <div className=' w-full h-1/2 flex justify-between items-center '>
                 <div className='font-semibold'>₹{price}</div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IoMdCloseCircle } from "react-icons/io"
 import CartItem from './CartItem'
 import { useSelector } from "react-redux";
@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom"
 import { RiDiscountPercentFill } from "react-icons/ri";
 import Offers from './Offers';
 import { BiSolidCoupon } from "react-icons/bi";
-import { removeCoupon } from '../redux/slices/couponSlice';
+import { removeCoupon,emptyCoupon } from '../redux/slices/couponSlice';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 
 export const Cart = () => {
@@ -32,6 +33,11 @@ export const Cart = () => {
     }
   })
 
+  useEffect(()=>{
+    if(cartItems.length ==0){
+      dispatch(emptyCoupon());
+    }
+  },[cartItems]) 
   function totalDiscountedPrice() {
     if (totalRupeesDiscount != 0 && totalPercentageDiscount != 0) {
       return (totalPrice - totalRupeesDiscount) - ((totalPrice - totalRupeesDiscount) * (totalPercentageDiscount * 0.01))
@@ -87,10 +93,12 @@ export const Cart = () => {
           
             <div className='absolute bottom-0  dark:bg-gray-800 dark:text-gray-200  bg-slate-100 w-full rounded-md'>
               <div className='flex'>{cartItems.length >= 1 && <Offers />}</div>
-              <div>{appliedCoupons.map((item) => <> <h3 key={item.id} className=' flex items-center bg-green-500  text-white w-fit rounded-md m-2 mx-3 p-1 font-semibold'> <BiSolidCoupon className='mr-2' />  {item.name} <IoMdCloseCircle onClick={() => {
-                dispatch(removeCoupon(item))
+              <div>{appliedCoupons.map((item) => <> <h3 key={item.id} className=' flex items-center bg-green-500  text-white w-fit rounded-md m-2 mx-3 p-1 font-semibold'>
+                <BiSolidCoupon className='mr-2' />  {item.name} <IoMdCloseCircle onClick={() => {
+              toast(`Coupon ${item.name} removed`);
+              dispatch(removeCoupon(item))
               }} className=' text-gray-800 ml-2' /></h3> </>)}</div>
-              <h3 className='font-semibold '>Total amount :{totalDiscountedPrice()} </h3>
+              <h3 className='font-semibold '>Total amount :₹{totalDiscountedPrice()} </h3>
               <h3 className='font-semibold '>Items : {totalQty}</h3>
               
               <button onClick={() => navigate("/success")} className='bg-green-600 text-white lg:w-[18vw] w-[90vw] rounded-lg font-semibold mb-3'>Checkout</button>
@@ -99,7 +107,9 @@ export const Cart = () => {
         </div>
       
 
-      <FaShoppingCart className={` fixed bottom-6 right-4 text-5xl p-3 bg-gray-200 rounded-full ${totalQty > 0 ? "animate-bounce delay-500 transition-all" : " animate-none "} `} onClick={() => { setActiveCart(!activeCart) }} />
+      <FaShoppingCart className={` fixed bottom-6 right-4 text-6xl p-4 border bg-green-500 rounded-full ${totalQty > 0 ? "animate-bounce delay-500 transition-all" : " animate-none "} `} onClick={() => {
+        
+        setActiveCart(!activeCart) }} />
     </>
   )
 }

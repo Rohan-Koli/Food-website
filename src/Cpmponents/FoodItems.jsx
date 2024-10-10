@@ -36,7 +36,7 @@ function FoodItems() {
   position="top-center"
   reverseOrder={false}
 />
-    <div className='flex flex-wrap  dark:bg-gray-800 dark:text-gray-200 border-black gap-10 justify-center px-6 py-10 '>
+    <div className='flex flex-wrap max-420:flex max-420:flex-wrap max-420:gap-0 w-full m-0 dark:bg-gray-800 dark:text-gray-200 border-black gap-10 justify-center px-2 py-10 '>
     {
       
       FoodData.filter((food)=>{
