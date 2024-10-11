@@ -55,6 +55,7 @@ function CategoryMenu() {
                         </button>
 
                         {category.map((category, index) => {
+                            
                             return <button
                                 onClick={() => dispatch(setCategory(category))}
                                 key={index} className={`px-3 py-2 bg-grey-200 font-semibold rounded-lg hover:bg-green-500 hover:text-white ' ${selectedCategory == category && "bg-green-500 text-white"}`} >{category}</button>
