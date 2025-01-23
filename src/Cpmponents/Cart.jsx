@@ -93,7 +93,7 @@ export const Cart = () => {
           
             <div className='absolute bottom-0  dark:bg-gray-800 dark:text-gray-200  bg-slate-100 w-full rounded-md'>
               <div className='flex'>{cartItems.length >= 1 && <Offers />}</div>
-              <div>{appliedCoupons.map((item) => <> <h3 key={item.id} className=' flex items-center bg-green-500  text-white w-fit rounded-md m-2 mx-3 p-1 font-semibold'>
+              <div>{appliedCoupons.map((item) => <> <h3 key={item.id} className=' flex items-center bg-orange-500  text-white w-fit rounded-md m-2 mx-3 p-1 font-semibold'>
                 <BiSolidCoupon className='mr-2' />  {item.name} <IoMdCloseCircle onClick={() => {
               toast(`Coupon ${item.name} removed`);
               dispatch(removeCoupon(item))
@@ -101,13 +101,13 @@ export const Cart = () => {
               <h3 className='font-semibold '>Total amount :₹{totalDiscountedPrice()} </h3>
               <h3 className='font-semibold '>Items : {totalQty}</h3>
               
-              <button onClick={() => navigate("/success")} className='bg-green-600 text-white lg:w-[18vw] w-[90vw] rounded-lg font-semibold mb-3'>Checkout</button>
+              <button onClick={() => navigate("/success")} className='bg-orange-600 text-white lg:w-[18vw] w-[90vw] rounded-lg font-semibold mb-3'>Checkout</button>
             </div>
           
         </div>
       
 
-      <FaShoppingCart className={` fixed bottom-6 right-4 text-6xl p-4 border bg-green-500 rounded-full ${totalQty > 0 ? "animate-bounce delay-500 transition-all" : " animate-none "} `} onClick={() => {
+      <FaShoppingCart className={` fixed bottom-6 right-4 text-6xl p-4 border bg-orange-500 rounded-full ${totalQty > 0 ? "animate-bounce delay-500 transition-all" : " animate-none "} `} onClick={() => {
         
         setActiveCart(!activeCart) }} />
     </>

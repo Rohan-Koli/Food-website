@@ -50,7 +50,7 @@ function CategoryMenu() {
                 <div className='   sm:flex flex-col gap-1 text-xs  justify-around lg:flex-row  lg:text-xl scroll-smooth  items-center'>
                     <div className={`  flex my-5 flex-wrap lg:gap-3 sm:justify-start font-bold items-center justify-start md:justify-start  `}>
 
-                        <button onClick={() => dispatch(setCategory("All"))} className={` px-3 py-2 bg-grey-200 font-semibold rounded-lg hover:bg-green-500 hover:text-white ${selectedCategory == category && "bg-green-500 text-white"}`}>
+                        <button onClick={() => dispatch(setCategory("All"))} className={` px-3 py-2 bg-grey-200 font-semibold rounded-lg hover:bg-orange-500 hover:text-white ${selectedCategory == category && "bg-orange-500 text-white"}`}>
                             All
                         </button>
 
@@ -58,7 +58,7 @@ function CategoryMenu() {
                             
                             return <button
                                 onClick={() => dispatch(setCategory(category))}
-                                key={index} className={`px-3 py-2 bg-grey-200 font-semibold rounded-lg hover:bg-green-500 hover:text-white ' ${selectedCategory == category && "bg-green-500 text-white"}`} >{category}</button>
+                                key={index} className={`px-3 py-2 bg-grey-200 font-semibold rounded-lg hover:bg-orange-500 hover:text-white ' ${selectedCategory == category && "bg-orange-500 text-white"}`} >{category}</button>
 
                         })}
 

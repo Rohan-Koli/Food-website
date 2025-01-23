@@ -19,7 +19,7 @@ function FoodCard({id,name,price,rating,desc,img,handleToast}) {
         
         <div className="text-sm flex justify-between">
         <h2>{name}</h2>
-        <span className='text-green-500'>₹{price}</span>
+        <span className='text-orange-500'>₹{price}</span>
         </div>
         <div>
             <p className='text-sm font-normal'>{desc.slice(0,50)}...</p>
@@ -27,7 +27,7 @@ function FoodCard({id,name,price,rating,desc,img,handleToast}) {
                 <span className='flex justify-center items-center'>
                 <AiFillStar className='mr-1 text-yellow-400' />{rating}
                 </span>
-                <button className='p-1 text-white max-420:text-xs bg-green-500 hover:bg-green-700 rounded-lg text-sm' onClick={()=>{
+                <button className='p-1 text-white max-420:text-xs bg-orange-500 hover:bg-orange-700 rounded-lg text-sm' onClick={()=>{
                   dispatch(addToCart({id,name,img,price,rating,desc,qty:1}))
                   handleToast(name)
                   }}> Add to Cart</button>

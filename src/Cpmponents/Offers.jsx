@@ -47,9 +47,9 @@ const Offers = () => {
                             addCouponToast(item.name)
                             }
                         } } className={`flex flex-wrap text-center ${currentDate > item.endDate && "pointer-events-none"} bg-slate-300  h-20 rounded-md overflow-auto`}>
-                            <div  className={`flex flex-wrap ${(currentDate < item.endDate) ?"bg-green-600" : "bg-gray-500 "}  ml-0 w-2/4 px-2 text-inherit items-center justify-center`}> {item.type == "percentage" ?<p className='font-bold text-2xl'>{item.discount}% Off</p> : <p className='font-bold text-2xl'>{item.discount} Rs. Off</p>} </div>
+                            <div  className={`flex flex-wrap ${(currentDate < item.endDate) ?"bg-orange-600" : "bg-gray-500 "}  ml-0 w-2/4 px-2 text-inherit items-center justify-center`}> {item.type == "percentage" ?<p className='font-bold text-2xl'>{item.discount}% Off</p> : <p className='font-bold text-2xl'>{item.discount} Rs. Off</p>} </div>
                             
-                            <div className={` flex flex-wrap ${(currentDate < item.endDate) ?"bg-green-300" : "bg-gray-300"}  w-2/4 ml-0 items-center justify-center `}>
+                            <div className={` flex flex-wrap ${(currentDate < item.endDate) ?"bg-orange-300" : "bg-gray-300"}  w-2/4 ml-0 items-center justify-center `}>
                                 <div className='items-center justify-center'><p className=' font-bold ' >{item.name}</p>
                             
                             
